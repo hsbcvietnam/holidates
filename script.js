@@ -82,14 +82,32 @@ document.getElementById("holidays-btn").addEventListener("click", () =>{
 
 const getHolidays = async ()=>{
     try{
-        let Country_Key = document.getElementById("country-query").value
-        if (Country_Key === "") {
-          Country_Key = "VN"
+        const Country_Key = document.getElementById("country-query").value
+        const Month = document.getElementById("month-query").value
+        const Day = document.getElementById("day-query").value
+        const Languages = document.getElementById("language-query").value
+        const Search = document.getElementById("search-query").value
+        let QueryText = ""
+        if (Country_Key) {
+          QueryText += `&country=${Country_Key}`
+        } else {
+          QueryText = "&country=VN"
         }
-        let Month = document.getElementById("month-query").value
-        let Day = document.getElementById("day-query").value
-        changeCountry(Country_Key)
-        const url = `https://holidayapi.com/v1/holidays?pretty&key=${API_KEY}&country=${Country_Key}&year=2021&month=${Month}&day=${Day}`
+        if (Month) {
+          QueryText += `&month=${Month}`
+        }
+        if (Day) {
+          QueryText += `&day=${Day}`
+        }
+        if (Languages) {
+          QueryText += `&language=${Languages}`
+        }
+        if (Search) {
+          QueryText = `&search=${Search}`
+        } else {
+          changeCountry(Country_Key)
+        }
+        const url = `https://holidayapi.com/v1/holidays?pretty&key=${API_KEY}&year=2021${QueryText}`
         const res = await fetch(url)
         const data = await res.json()
         console.log("data", data) //have a look the retrieved data
@@ -110,7 +128,7 @@ const renderHolidays = async()=>{
             x.innerHTML = `<div class="bullet">${index + 1}</div>
             <div class="li-wrapper">
                 <div class="li-title">${holidays.name}</div>
-                <div class="li-text">${holidays.weekday.date.name}, ${holidays.date}</div>
+                <div class="li-text">${holidays.weekday.date.name}, ${holidays.date}, ${holidays.country}</div>
             </div>`;
             ulHolidayList.appendChild(x)
         })
