@@ -1,4 +1,22 @@
-const API_KEY = "d22b046e-1d67-45f9-b518-bff0b0f2cb7d"
+const API_KEY = "6ff34260-b9e4-47ef-b91d-b4aff25d5874"
+
+//Get the list of countries 
+
+ 
+// Get the language list 
+
+const getLanguages = async () => {
+  try {  
+    const apiSource = `https://holidayapi.com/v1/languages?pretty&key=${API_KEY}`;
+    const result = await fetch(apiSource);
+    const langData = await result.json();
+    console.log("languages",langData);
+    return langData;
+}   catch (err) {
+    console.log("err",err);
+}
+};
+
 
 const renderCountries = async()=>{
     try{
