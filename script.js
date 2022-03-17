@@ -56,6 +56,23 @@ document.getElementById("holidays-btn").addEventListener("click", () =>{
     renderHolidays()
 })
 
+const getHolidays = async ()=>{
+    try{
+        let Country_Key = document.getElementById("country-query").value
+        if (Country_Key === "") {
+          Country_Key = "VN"
+        }
+        changeCountry(Country_Key)
+        const url = `https://holidayapi.com/v1/holidays?pretty&key=${API_KEY}&country=${Country_Key}&year=2021`
+        const res = await fetch(url)
+        const data = await res.json()
+        console.log("data", data) //have a look the retrieved data
+        return data
+    } catch(err) {
+        console.log("err", err)
+    }
+}
+
 const renderHolidays = async()=>{
     try{
         const data = await getHolidays()
@@ -72,23 +89,6 @@ const renderHolidays = async()=>{
             ulHolidayList.appendChild(x)
         })
     } catch(err){
-        console.log("err", err)
-    }
-}
-
-const getHolidays = async ()=>{
-    try{
-        let Country_Key = document.getElementById("country-query").value
-        if (Country_Key === "") {
-          Country_Key = "VN"
-        }
-        changeCountry(Country_Key)
-        const url = `https://holidayapi.com/v1/holidays?pretty&key=${API_KEY}&country=${Country_Key}&year=2021`
-        const res = await fetch(url)
-        const data = await res.json()
-        console.log("data", data) //have a look the retrieved data
-        return data
-    } catch(err) {
         console.log("err", err)
     }
 }
