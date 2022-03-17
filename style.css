@@ -1,8 +1,7 @@
 :root {
-  --background-color: #6b705c;
-  --header-color: hsl(75, 10%, 40%);
-  --button-color: #e76f51;
-  --button-hover-color: #535a3f;
+  --header-color: hsl(74, 90%, 61%);
+  --button-color: #06ff9f;
+  --button-hover-color: #bcff02;
   --li-title-color: green;
 }
 
@@ -26,10 +25,11 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
+
 /* Utilities classes */
 .border {
   /* border: 1px solid black; */
-  box-shadow: 0 0 1px 1px #00000036;
+  box-shadow: 0 0 1px 1px #e9fa00;
 }
 .flex {
   display: flex;
@@ -176,7 +176,7 @@ nav > h1 {
   bottom: -10px;
   right: 50%;
   border: 5px solid;
-  border-color: gray transparent transparent transparent;
+  border-color: rgb(223, 255, 109) transparent transparent transparent;
   margin-top: -5px;
   opacity: 0;
   transition-duration: 0.2s;
@@ -196,6 +196,31 @@ nav > h1 {
 
 html {
 }
+/*
+.animated {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(145deg, #dce35b, #45b649);
+  background-size: 500%, 500%;
+  animation: background;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes background {
+  0% {
+    background-position: 0, 0;
+  }
+  100% {
+    background-position: 100%, 100%;
+  }
+}
+
+*/
 
 header {
   position: relative;
@@ -203,7 +228,7 @@ header {
 }
 
 header nav {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(1, 255, 158, 0.842);
   color: white;
   letter-spacing: 1px;
 }
@@ -226,7 +251,7 @@ header img {
 }
 
 .card-shadow {
-  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.356);
+  box-shadow: 2px 2px 10px 0px rgba(253, 249, 0, 0.979);
 }
 
 .card h3 {
@@ -238,11 +263,11 @@ header img {
   padding: 5px 10px;
   left: 10px;
   background-color: var(--header-color);
-  color: white;
+  color: rgb(42, 133, 1);
 }
 
 .divider {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(228, 245, 136, 0.801);
   width: 80%;
   margin: 10px auto;
 }
@@ -260,7 +285,7 @@ html {
   width: 100%;
   position: absolute;
   z-index: 0;
-  border: 2px dashed white;
+  border: 2px dashed rgb(3, 182, 98);
   top: -10px;
   left: -10px;
   background-image: repeating-linear-gradient(
@@ -283,7 +308,7 @@ html {
   padding: 10px;
   border-radius: 5px;
   background-color: var(--button-color);
-  color: white;
+  color: green;
   transition-duration: 0.3s;
   margin: 10px;
 }
@@ -316,7 +341,7 @@ li {
 
 .bullet {
   padding: 10px;
-  color: rgb(158, 158, 158);
+  color: rgb(0, 146, 73);
   display: flex;
   align-items: center;
   width: 20px;
