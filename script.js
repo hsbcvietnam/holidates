@@ -86,8 +86,10 @@ const getHolidays = async ()=>{
         if (Country_Key === "") {
           Country_Key = "VN"
         }
+        let Month = document.getElementById("month-query").value
+        let Day = document.getElementById("day-query").value
         changeCountry(Country_Key)
-        const url = `https://holidayapi.com/v1/holidays?pretty&key=${API_KEY}&country=${Country_Key}&year=2021`
+        const url = `https://holidayapi.com/v1/holidays?pretty&key=${API_KEY}&country=${Country_Key}&year=2021&month=${Month}&day=${Day}`
         const res = await fetch(url)
         const data = await res.json()
         console.log("data", data) //have a look the retrieved data
